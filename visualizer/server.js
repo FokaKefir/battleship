@@ -4,9 +4,11 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
-const BASE_URL = 'https://battle.piratesonline.us';
-const API_KEY = 'Harcivizibusz';
-const PORT = 3000;
+// Allow overriding configuration from environment variables. This makes it
+// easier to change the port or API target without editing the file.
+const BASE_URL = process.env.BASE_URL || 'https://battle.piratesonline.us';
+const API_KEY = process.env.API_KEY || 'Harcivizibusz';
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 // MIME types for different file extensions
 const MIME_TYPES = {

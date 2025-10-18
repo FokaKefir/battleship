@@ -2,9 +2,10 @@ const http = require('http');
 const https = require('https');
 const url = require('url');
 
-const BASE_URL = 'https://battle.piratesonline.us';
-const API_KEY = 'Harcivizibusz';
-const PORT = 3000;
+// Allow overriding configuration from environment variables.
+const BASE_URL = process.env.BASE_URL || 'https://battle.piratesonline.us';
+const API_KEY = process.env.API_KEY || 'Harcivizibusz';
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 const server = http.createServer((req, res) => {
     // Enable CORS

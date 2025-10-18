@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship Match Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚢 Battleship Match Visualizer</h1>
+
+        <div class="controls">
+            <div class="control-row">
+                <label>Update interval:</label>
+                <input type="range" id="intervalSlider" min="0.2" max="5" step="0.1" value="1">
+                <span id="intervalLabel">1.0s</span>
+                <label style="margin-left: auto;">
+                    <input type="checkbox" id="revealBoards" checked>
+                    Reveal boards
+                </label>
+            </div>
+
+            <div class="control-row">
+                <label>Lobby:</label>
+                <select id="lobbySelect">
+                    <option value="">Select a lobby</option>
+                </select>
+                <button id="deleteLobbyBtn" disabled class="danger">Delete</button>
+            </div>
+
+            <div class="control-row">
+                <label>New lobby:</label>
+                <input type="text" id="newLobbyKey" placeholder="Enter lobby key">
+                <button id="createLobbyBtn">Create</button>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Lobby Status</h3>
+            <p id="lobbyInfo">Select a lobby to view status.</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-row">
+                <label>Match:</label>
+                <select id="matchSelect">
+                    <option value="">Select a match</option>
+                </select>
+            </div>
+
+            <div class="control-row">
+                <label>Game view:</label>
+                <select id="gameSelect" disabled>
+                    <option value="">Live view</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="replay-controls">
+            <button id="playBtn" disabled>Play</button>
+            <button id="stepBackBtn" disabled>◀</button>
+            <button id="stepForwardBtn" disabled>▶</button>
+            <span id="stepLabel">Shot 0/0</span>
+            <input type="range" id="replaySlider" class="replay-slider" min="0" max="0" value="0" disabled>
+        </div>
+
+        <div class="progress-section" id="progressSection"></div>
+
+        <div class="game-info" id="gameInfo">Awaiting data…</div>
+
+        <div class="boards-container" id="boardsContainer"></div>
+
+        <div class="history-section">
+            <h3>Move History</h3>
+            <div class="history-box" id="historyBox"></div>
+        </div>
+
+        <div class="status-bar" id="statusBar">Select a lobby or match to begin.</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
